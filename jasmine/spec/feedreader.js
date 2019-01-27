@@ -74,6 +74,7 @@ $(function() {
             it('interacao do menu', function(){
             $('#menu-buttom').click();
             expect($('body').hasClass('menu-hidden')).toBe(true);
+            
             });
         });
 
@@ -98,7 +99,18 @@ $(function() {
          */
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('feed de seleção', function(){
+        it('selecionando as noticias', function(){
+            var meuFeed;
 
+            beforeEach(function(done){
+                loadFeed(0,function(){
+                    meuFeed = $('.feed .entry').contents();
+                    done();
+                });
+            });
+        });
+    });
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
