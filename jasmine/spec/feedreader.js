@@ -76,6 +76,9 @@ $(function() {
             $('#menu-buttom').click();
             expect($('body').hasClass('menu-hidden')).toBe(true);
             $('#menu-buttom').click();
+            /**
+             * caso o body nao tenha a classe
+             */
             expect($('body').hasClass('menu-hidden')).not.toBe(false);
         });
     });
@@ -90,10 +93,32 @@ $(function() {
         expect($('.feed .entry').length).not.toBe(0);
     });
 });
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
+
+
+
+    /* Escrevendo um suite com o feed sobre novas" */
+    describe('Novo feed de seleção', function(){
+      var meuFeed1,meuFeed2;
+      /**
+       * está averiguando se é o mesmo feed 
+       * salvando dados nas variaveis
+       */
+      beforeEach(function(done){
+          loadFeed(0,function(){
+              meuFeed1 = $('.feed .entry').contents();
+          loadFeed(1,function(){
+              meuFeed2 = $('.feed .entry').contents();
+              done();
+            });
+          });
+        /* 
+        * verificando ambas variaveis 
+        * 
+       */
+      it('selecionando as noticias', function(){
+        expect(meuFeed1).not.toBe(meuFeed2)
+        });
+      });
+  });
+
 }());

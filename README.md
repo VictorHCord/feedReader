@@ -19,13 +19,14 @@ Neste projeto, você receberá uma aplicação baseada na web que lê feeds RSS.
 Você aprenderá a usar o Jasmine para elaborar vários testes em uma aplicação pré-existente. Eles testarão a lógica de negócios da aplicação, bem como o manuseio de eventos e a manipulação do DOM.
 
 
-
-
 ## Como isso ajudará na minha carreira?
 
 Elaborar testes eficazes requer a análise de vários aspectos de uma aplicação, inclusive HTML, CSS e JavaScript - uma habilidade extremamente importante ao mudar de equipe ou ingressar em uma nova empresa.
-Bons testes oferecem a capacidade de analisar rapidamente se o novo código danifica um recurso existente em sua base de código sem precisar testar manualmente toda a funcionalidade.eature within your codebase, without having to manually test all of the functionality.
+Bons testes oferecem a capacidade de analisar rapidamente se o novo código danifica um recurso existente em sua base de código sem precisar testar manualmente toda a funcionalidade
 
+### Como utilizar?
+Faça download desse repositorio e abra o index.html no seu navegador.
+assim o sistema ira funcionar normalmente
 
 
 
