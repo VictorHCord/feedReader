@@ -16,6 +16,7 @@ leitor de feed.
 Neste projeto, você receberá uma aplicação baseada na web que lê feeds RSS. Seu desenvolvedor original viu claramente o valor dos testes, já incluiu o Jasmine e até já começou a elaborar a primeira suíte de testes! Infelizmente, ele decidiu abrir sua própria empresa e agora ficamos com uma aplicação sem uma suíte de testes concluída. É aí que você entra.
 
 ###O que vou aprender?
+
 Você aprenderá a usar o Jasmine para elaborar vários testes em uma aplicação pré-existente. Eles testarão a lógica de negócios da aplicação, bem como o manuseio de eventos e a manipulação do DOM.
 
 

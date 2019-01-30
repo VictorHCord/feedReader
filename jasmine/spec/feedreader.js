@@ -32,30 +32,18 @@ $(function() {
          * verificando se está vazio 
          */
 
-        it('Definindo NAME', function(){
-            let defined = true;
-        
-            for(let i in allFeeds){
-                /*Verificando se a URL está ou não definida*/
-                /*Verificando se eles possuem algo ou não */
-                if(allFeeds[i].name === expect(allFeeds).not.toBe(null) || allFeeds[i].name === expect(allFeeds).not.toBe(undefined) || allFeeds[i].name === expect(allFeeds).not.toBe('')){
-                    defined = false;
+        it('Definindo NAME e URL', function(){
+            var defined = true;
+              /*
+                * Fazendo a checagem da variavel para que ela esteja de acordo
+                * Vai percorrer tanto URL como NAME 
+               */
+            for(let feed of allFeeds){
+                if(expect(feed).not.toBe(null) || expect(feed).not.toBe('') || expect(feed).toBeDefined()){
+                defined = false;
                 }
             }
             expect(defined).toBe(true);
-
-        });
-
-        it('definindo URL',function(){
-            var nameDefined = true;
-            for(let i in allFeeds){
-                /*Verificando se a URL está ou não definida*/
-                /*espera que apos a verificação todos estejam definidos*/
-                if(allFeeds[i].url === expect(allFeeds).toBeDefined() || allFeeds[i].url === expect(allFeeds).toBeDefined() || allFeeds[i].url === expect(allFeeds).toBeDefined()){
-                    nameDefined = false;
-                }
-            }
-            expect(nameDefined).toBe(true);
         });
     });
 
@@ -64,22 +52,20 @@ $(function() {
      * está verificando se tem outro body
      */
     describe('O Meu menu', function(){
-        let menu = document.querySelector('body').classList;
-
         it('default', function(){
+            let menu = document.querySelector('body').classList;
             expect(menu).toContain('menu-hidden');
 
         }); 
-        /* Verificando o click no menu*/
         /*Verificando se o abre e fecha o menu*/
             it('interacao', function(){
-            $('#menu-buttom').click();
-            expect($('body').hasClass('menu-hidden')).toBe(true);
-            $('#menu-buttom').click();
-            /**
-             * caso o body nao tenha a classe
-             */
-            expect($('body').hasClass('menu-hidden')).not.toBe(false);
+            $('.menu-icon-link').click();
+            //Verificando o 1  click
+            expect($('body').hasClass('menu-hidden')).toBeFalsy();
+            $('.menu-icon-link').click();
+            //Verifica se oculta ao 2 click
+            expect($('body').hasClass('menu-hidden')).toBeTruthy();
+
         });
     });
 
@@ -93,32 +79,26 @@ $(function() {
         expect($('.feed .entry').length).not.toBe(0);
     });
 });
-
-
-
-    /* Escrevendo um suite com o feed sobre novas" */
-    describe('Novo feed de seleção', function(){
-      var meuFeed1,meuFeed2;
-      /**
+/* Escrevendo um suite com o feed sobre novas */
+describe('Novo feed de seleção', function(){
+    var meuFeed1, meuFeed2;
+          /**
        * está averiguando se é o mesmo feed 
        * salvando dados nas variaveis
        */
-      beforeEach(function(done){
-          loadFeed(0,function(){
-              meuFeed1 = $('.feed .entry').contents();
-          loadFeed(1,function(){
-              meuFeed2 = $('.feed .entry').contents();
-              done();
-            });
-          });
-        /* 
-        * verificando ambas variaveis 
-        * 
-       */
-      it('selecionando as noticias', function(){
-        expect(meuFeed1).not.toBe(meuFeed2)
+    beforeEach(function(done){
+        loadFeed(0,function(){
+            meuFeed1 = $('.feed .entry').html();
+        loadFeed(1,function(){
+            meuFeed2 = $('.feed .entry').html();
+            done();
         });
-      });
-  });
+        });
+    });
+    it('Selecionando as noticias', function(){
+        expect(meuFeed1).not.toBe(meuFeed2);
+    });
+});
+
 
 }());
