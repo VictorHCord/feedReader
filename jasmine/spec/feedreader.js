@@ -27,7 +27,7 @@ $(function() {
         });
 
 
-        /* TODO: escrevendo um teste 
+        /* Escrevendo um teste 
          * Criando um objeto e definindo um nome
          * verificando se está vazio 
          */
